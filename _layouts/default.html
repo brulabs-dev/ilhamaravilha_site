@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Paleta Ilha Maravilha - EM BREVE */
+    :root {
+      --ilha-amarelo: #FFD600;
+      --ilha-pink: #FF0080;
+      --ilha-ciano: #00BFFF;
+      --ilha-roxo: #9932CC;
+      --ilha-roxo-dark: #8A2BE2;
+      --ilha-verde: #00B37B;
+    }
+    .bg-ilha-amarelo { background-color: var(--ilha-amarelo); }
+    .bg-ilha-roxo { background-color: var(--ilha-roxo); }
+    .bg-ilha-roxo-dark { background-color: var(--ilha-roxo-dark); }
+    .bg-ilha-ciano { background-color: var(--ilha-ciano); }
+    .bg-ilha-pink { background-color: var(--ilha-pink); }
+    .text-ilha-amarelo { color: var(--ilha-amarelo); }
+    .text-ilha-roxo { color: var(--ilha-roxo); }
+    .text-ilha-roxo-dark { color: var(--ilha-roxo-dark); }
+    .text-ilha-ciano { color: var(--ilha-ciano); }
+    .text-ilha-pink { color: var(--ilha-pink); }
+    .border-ilha-roxo { border-color: var(--ilha-roxo); }
+    .decoration-ilha-ciano { --tw-gradient-from: var(--ilha-ciano); text-decoration-color: var(--ilha-ciano); }
+    .decoration-ilha-pink { text-decoration-color: var(--ilha-pink); }
+    .decoration-ilha-roxo-dark { text-decoration-color: var(--ilha-roxo-dark); }
+    .from-ilha-roxo\/40 { --tw-gradient-from: rgba(153, 50, 204, 0.4); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(153, 50, 204, 0)); }
+    .text-ilha-roxo-dark\/70 { color: rgba(138, 43, 226, 0.7); }
+    .text-ilha-roxo-dark\/60 { color: rgba(138, 43, 226, 0.6); }
+    .hover\:bg-ilha-roxo-dark:hover { background-color: var(--ilha-roxo-dark); }
+    .drop-shadow-ilha-roxo { filter: drop-shadow(6px 6px 0 var(--ilha-roxo-dark)); }
+  </style>
+  {% seo %}
+</head>
+<body class="bg-white text-slate-800 antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+      <a href="/" class="text-xl font-black text-ilha-roxo-dark tracking-tighter">Ilha Maravilha</a>
+      <nav class="flex items-center gap-6">
+        <a href="/#espaco" class="text-sm font-bold text-slate-600 hover:text-ilha-roxo transition-colors hidden sm:block">Experiência</a>
+        <a href="/#galeria" class="text-sm font-bold text-slate-600 hover:text-ilha-roxo transition-colors hidden sm:block">Galeria</a>
+        <a href="https://wa.me/5548999999999" target="_blank" rel="noopener" class="flex items-center gap-2 bg-ilha-roxo text-white px-4 py-2.5 rounded-full text-sm font-black hover:bg-ilha-roxo-dark transition-colors">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          WhatsApp
+        </a>
+        <a href="https://instagram.com/ilha.maravilha" target="_blank" rel="noopener" class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-slate-200 text-ilha-roxo hover:border-ilha-roxo hover:bg-ilha-roxo hover:text-white transition-all" aria-label="Instagram">
+          <i data-lucide="instagram" class="w-5 h-5"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  {{ content }}
+
+  <!-- Footer -->
+  <footer class="bg-ilha-roxo-dark text-white">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-3 gap-12 items-start">
+        <div>
+          <p class="text-2xl font-black tracking-tighter mb-2">Ilha Maravilha</p>
+          <p class="text-white/70 text-sm font-medium">Parque indoor no Rio Tavares, Florianópolis. Diária, passaporte ou festa fechada.</p>
+        </div>
+        <div>
+          <p class="text-xs font-black uppercase tracking-widest text-white/60 mb-4">Contato</p>
+          <a href="https://wa.me/5548999999999" target="_blank" rel="noopener" class="flex items-center gap-2 text-white font-bold hover:underline mb-2">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            WhatsApp
+          </a>
+          <a href="https://instagram.com/ilha.maravilha" target="_blank" rel="noopener" class="flex items-center gap-2 text-white font-bold hover:underline">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+            @ilha.maravilha
+          </a>
+        </div>
+        <div>
+          <p class="text-xs font-black uppercase tracking-widest text-white/60 mb-4">Navegar</p>
+          <a href="/#espaco" class="block text-white/80 font-medium hover:text-white mb-1">Experiência</a>
+          <a href="/#galeria" class="block text-white/80 font-medium hover:text-white">Galeria</a>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-white/60">© {{ site.time | date: '%Y' }} Ilha Maravilha. Rio Tavares, Florianópolis.</p>
+        <p class="text-sm font-bold text-ilha-amarelo">Feito de pais, para pais.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
