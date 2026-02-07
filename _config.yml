@@ -12,3 +12,6 @@ plugins:
 
 # Permalinks
 permalink: /:title/
+
+# Garantir que a pasta images seja copiada no build
+include: [images]
