@@ -1,0 +1,14 @@
+title: "Ilha Maravilha - Moderno & Lúdico"
+description: "Parque indoor no Rio Tavares, Florianópolis. Diária, passaporte mensal ou festa fechada. Diversão lúdica, monitoria ativa e cenários instagráveis."
+url: "https://ilhamaravilha.com.br"
+baseurl: ""
+logo: ""
+image: ""
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Permalinks
+permalink: /:title/
