@@ -1814,6 +1814,7 @@ const PRECO = {
   semana: { salao: 200, ingresso: 81, horaExtraSalao: 100, horaExtraPulante: 30 },
   fds:    { salao: 500, ingresso: 112.50, horaExtraSalao: 300, horaExtraPulante: 32 }
 };
+const BEBIDA = 12;
 const BUFFET_ADULTO = 38;
 const BUFFET_CRIANCA = 29;
 
@@ -1863,6 +1864,10 @@ function calc() {
   const vIngresso = p.ingresso * c;
   rows.push({ label: `${c} ingressos × R$${p.ingresso.toLocaleString('pt-BR',{minimumFractionDigits:2})}`, value: vIngresso });
 
+  // bebidas (todas as pessoas)
+  const vBebidas = BEBIDA * total_pessoas;
+  rows.push({ label: `Bebidas × ${total_pessoas} pessoas (R$${BEBIDA}/pessoa)`, value: vBebidas });
+
   // buffet
   let vBuffet = 0;
   if (opts.buffet) {
@@ -1880,7 +1885,7 @@ function calc() {
     rows.push({ label: `${ex}h extra (salão + ${c} pulantes)`, value: vExtra });
   }
 
-  const t = vSalao + vIngresso + vBuffet + vExtra;
+  const t = vSalao + vIngresso + vBebidas + vBuffet + vExtra;
 
   const f = 'R$ ' + t.toLocaleString('pt-BR', {minimumFractionDigits: 0, maximumFractionDigits: 2});
   document.getElementById('price').textContent = f;
@@ -1900,14 +1905,16 @@ function calc() {
   const diaLabel = dia === 'fds' ? 'fim de semana' : 'seg-qui';
   let d = `${diaLabel} · ${c} criança${c!==1?'s':''} · ${a} adulto${a!==1?'s':''} · ${3+ex}h`;
   const extras = [];
+  extras.push('bebidas');
   if (opts.buffet) extras.push('buffet');
-  d += extras.length ? ' · com ' + extras.join(' e ') : '';
+  d += ' · com ' + extras.join(' e ');
   document.getElementById('detail').textContent = d;
 
+  const totalHoras = 3 + ex;
   const parts = [];
   parts.push(`${c} pulante${c!==1?'s':''}`);
   parts.push(`${a} adulto${a!==1?'s':''}`);
-  if (ex > 0) parts.push(`${ex} hora${ex!==1?'s':''} extra${ex!==1?'s':''}`);
+  parts.push(`duração total de ${totalHoras}h`);
   if (opts.buffet) parts.push('com buffet');
   const diaMsg = dia === 'fds' ? 'fim de semana/feriado' : 'seg a quinta';
   const msg = encodeURIComponent(`Olá! Simulei uma festa pelo site (${diaMsg}) com ${parts.join(', ')} e ficou ${f}. Pode me ajudar?`);
