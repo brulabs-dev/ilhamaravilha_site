@@ -939,8 +939,8 @@ img { max-width: 100%; display: block; }
 .calc-stepper input::-webkit-inner-spin-button { -webkit-appearance: none; }
 
 .calc-toggles {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
   gap: 16px;
   margin-bottom: 40px;
 }
@@ -949,10 +949,10 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 18px 22px;
+  padding: 18px 28px;
   background: rgba(255,255,255,0.03);
   border: 2px solid rgba(255,255,255,0.06);
-  border-radius: var(--r-sm);
+  border-radius: var(--r-pill);
   cursor: pointer;
   transition: border-color 0.3s, background 0.3s, transform 0.2s;
 }
@@ -1548,8 +1548,8 @@ img { max-width: 100%; display: block; }
   .calc-stepper { border-radius: 10px; }
   .calc-stepper button { width: 38px; height: 40px; font-size: 1rem; }
   .calc-stepper input { font-size: 1.1rem; padding: 8px 0; }
-  .calc-toggles { grid-template-columns: 1fr; gap: 8px; margin-bottom: 24px; }
-  .calc-toggle { padding: 12px 14px; border-radius: 10px; }
+  .calc-toggles { justify-content: center; gap: 8px; margin-bottom: 24px; }
+  .calc-toggle { padding: 12px 20px; }
   .calc-day-picker { border-radius: 10px; margin-bottom: 20px; }
   .calc-day-btn { padding: 11px 10px; font-size: 0.6rem; letter-spacing: 0.5px; }
   .calc-notes li { font-size: 0.72rem; }
