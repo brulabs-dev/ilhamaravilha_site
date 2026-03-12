@@ -1,7 +1,7 @@
-title: "Ilha Maravilha - Moderno & Lúdico"
-description: "Parque indoor no Rio Tavares, Florianópolis. Diária, passaporte mensal ou festa fechada. Diversão lúdica, monitoria ativa e cenários instagráveis."
+title: "Ilha Maravilha Park - Parque Indoor em Florianópolis"
+description: "Parque indoor em Florianópolis. Diária avulsa ou festa fechada. Diversão lúdica, monitoria ativa e cenários instagráveis."
 # Sem domínio: deixe url vazio. Com domínio: "https://seusite.com.br"
-url: ""
+url: "https://ilhamaravilhapark.com.br"
 # Nome do repo no GitHub. Com domínio custom: ""
 baseurl: "/ilhamaravilha_site"
 logo: ""
@@ -16,4 +16,4 @@ plugins:
 permalink: /:title/
 
 # Garantir que a pasta images seja copiada no build
-include: [images]
+include: [images, videos]
