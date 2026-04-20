@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KHLMXV7H');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
@@ -1625,8 +1632,10 @@ img { max-width: 100%; display: block; }
 </style>
 </head>
 <body>
-
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KHLMXV7H"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 <div class="bg-shapes" aria-hidden="true">
   <div class="bg-layer bg-layer-far" id="layer-far">
     <div class="bg-shape bg-circle-1"></div>
@@ -1758,6 +1767,7 @@ function precoVolume(c) {
 
 let dia = 'fds';
 let opts = { buffet: false };
+let calc_value = 0;
 
 function setDay(d) {
   dia = d;
@@ -1812,6 +1822,7 @@ function calc() {
   }
 
   const t = vSalao + vIngresso + vBebidas + vBuffet + vExtra;
+  calc_value = t;
 
   const f = 'R$ ' + t.toLocaleString('pt-BR', {minimumFractionDigits: 0, maximumFractionDigits: 2});
   document.getElementById('price').textContent = f;
@@ -1844,6 +1855,14 @@ function calc() {
   const msg = encodeURIComponent(`Olá! Simulei uma festa pelo site (${diaMsg}) com ${parts.join(', ')} e ficou ${f}. Pode me ajudar?`);
   document.getElementById('calc-wa').href = `https://wa.me/5548988461606?text=${msg}`;
 }
+
+document.getElementById('calc-wa').addEventListener('click', function() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'wpp_calculadora',
+    'valor_festa': calc_value
+  });
+});
 
 calc();
 </script>
