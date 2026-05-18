@@ -1761,12 +1761,12 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.anim').forEach(el => io.observe(el));
 
 const PRECO = {
-  semana: { salao: 200, ingresso: 81, horaExtraSalao: 100, horaExtraPulante: 30 },
-  fds:    { salao: 500, ingresso: 112.50, horaExtraSalao: 300, horaExtraPulante: 32 }
+  semana: { salao: 250, ingresso: 81, horaExtraSalao: 100, horaExtraPulante: 30, adultoExtra: 48 },
+  fds:    { salao: 600, ingresso: 112.50, horaExtraSalao: 300, horaExtraPulante: 32, adultoExtra: 64 }
 };
-const BEBIDA = 12;
-const BUFFET_ADULTO = 38;
-const BUFFET_CRIANCA = 29;
+const BEBIDA = 18;
+const BUFFET_ADULTO = 46;
+const BUFFET_CRIANCA = 35;
 
 function precoVolume(c) {
   if (c <= 20) return 190;
@@ -1824,13 +1824,20 @@ function calc() {
     if (a > 0) rows.push({ label: `Buffet adultos: ${a} × R$${BUFFET_ADULTO}`, value: ba });
   }
 
+  const adultosExcedentes = Math.max(0, a - 2 * c);
+  let vAdultoExtra = 0;
+  if (adultosExcedentes > 0) {
+    vAdultoExtra = p.adultoExtra * adultosExcedentes;
+    rows.push({ label: `${adultosExcedentes} adulto${adultosExcedentes!==1?'s':''} além de 2 por criança × R$${p.adultoExtra}`, value: vAdultoExtra });
+  }
+
   let vExtra = 0;
   if (ex > 0) {
     vExtra = (p.horaExtraSalao * ex) + (p.horaExtraPulante * c * ex);
     rows.push({ label: `${ex}h extra (salão + ${c} pulantes)`, value: vExtra });
   }
 
-  const t = vSalao + vIngresso + vBebidas + vBuffet + vExtra;
+  const t = vSalao + vIngresso + vBebidas + vBuffet + vAdultoExtra + vExtra;
   calc_value = t;
 
   const f = 'R$ ' + t.toLocaleString('pt-BR', {minimumFractionDigits: 0, maximumFractionDigits: 2});
