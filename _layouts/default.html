@@ -1833,8 +1833,10 @@ function calc() {
 
   let vExtra = 0;
   if (ex > 0) {
-    vExtra = (p.horaExtraSalao * ex) + (p.horaExtraPulante * c * ex);
-    rows.push({ label: `${ex}h extra (salão + ${c} pulantes)`, value: vExtra });
+    const baseExtra = dia === 'fds' ? 300 : 100;
+    const precoHoraExtra = baseExtra + (c + a) * 10;
+    vExtra = precoHoraExtra * ex;
+    rows.push({ label: `${ex}h extra × R$${precoHoraExtra.toLocaleString('pt-BR')} (${baseExtra} + ${c + a} pessoas × R$10)`, value: vExtra });
   }
 
   const t = vSalao + vIngresso + vBebidas + vBuffet + vAdultoExtra + vExtra;
