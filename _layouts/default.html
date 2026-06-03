@@ -1765,10 +1765,10 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.anim').forEach(el => io.observe(el));
 
 const PRECO = {
-  semana: { salao: 250, ingresso: 99, horaExtraSalao: 100, horaExtraPulante: 30, adultoExtra: 48 },
-  fds:    { salao: 600, ingresso: 137.50, horaExtraSalao: 300, horaExtraPulante: 32, adultoExtra: 64 }
+  semana: { salao: 220, ingresso: 88.20, horaExtraSalao: 100, horaExtraPulante: 30, adultoExtra: 48 },
+  fds:    { salao: 550, ingresso: 122.50, horaExtraSalao: 300, horaExtraPulante: 32, adultoExtra: 64 }
 };
-const BEBIDA = 18;
+const BEBIDA = 15;
 const BUFFET_ADULTO = 46;
 const BUFFET_CRIANCA = 35;
 
@@ -1798,6 +1798,14 @@ function toggle(k) {
   opts[k] = !opts[k];
   document.getElementById('t-'+k).classList.toggle('on', opts[k]);
   calc();
+}
+
+function formatBRL(value) {
+  const hasCents = !Number.isInteger(value);
+  return value.toLocaleString('pt-BR', {
+    minimumFractionDigits: hasCents ? 2 : 0,
+    maximumFractionDigits: 2
+  });
 }
 
 function calc() {
@@ -1846,7 +1854,7 @@ function calc() {
   const t = vSalao + vIngresso + vBebidas + vBuffet + vAdultoExtra + vExtra;
   calc_value = t;
 
-  const f = 'R$ ' + t.toLocaleString('pt-BR', {minimumFractionDigits: 0, maximumFractionDigits: 2});
+  const f = 'R$ ' + formatBRL(t);
   document.getElementById('price').textContent = f;
 
   const priceEl = document.getElementById('price');
@@ -1855,7 +1863,7 @@ function calc() {
 
   const bEl = document.getElementById('breakdown-items');
   bEl.innerHTML = rows.map(r =>
-    `<div class="calc-breakdown-row"><span>${r.label}</span><span>R$ ${r.value.toLocaleString('pt-BR', {minimumFractionDigits: 0, maximumFractionDigits: 2})}</span></div>`
+    `<div class="calc-breakdown-row"><span>${r.label}</span><span>R$ ${formatBRL(r.value)}</span></div>`
   ).join('') +
     `<div class="calc-breakdown-row total-row"><span>Total</span><span>${f}</span></div>`;
 
