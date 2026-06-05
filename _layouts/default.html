@@ -1840,7 +1840,7 @@ function calc() {
   let vAdultoExtra = 0;
   if (adultosExcedentes > 0) {
     vAdultoExtra = p.adultoExtra * adultosExcedentes;
-    rows.push({ label: `${adultosExcedentes} adulto${adultosExcedentes!==1?'s':''} além de 2 por criança × R$${p.adultoExtra}`, value: vAdultoExtra });
+    rows.push({ label: `${adultosExcedentes} adulto${adultosExcedentes!==1?'s':''} adicional × R$${p.adultoExtra}`, value: vAdultoExtra });
   }
 
   let vExtra = 0;
