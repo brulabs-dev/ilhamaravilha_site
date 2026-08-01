@@ -1979,7 +1979,7 @@ function calc() {
   parts.push(`duração total de ${totalHoras}h`);
   if (opts.buffet) parts.push('com buffet');
   const diaMsg = dia === 'fds' ? 'fim de semana/feriado' : 'seg a quinta';
-  const msg = encodeURIComponent(`Olá! Simulei uma festa pelo site (${diaMsg}) com ${parts.join(', ')} e ficou ${f}. Pode me ajudar?`);
+  const msg = encodeURIComponent(`Olá! Simulei uma festa pelo site (${diaMsg}) com ${parts.join(', ')}. Valor normal: ${f}. Valor na promo de Agosto (Pix): ${fDesconto}. Pode me ajudar?`);
   document.getElementById('calc-wa').href = `https://wa.me/5548988461606?text=${msg}`;
 }
 
