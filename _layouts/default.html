@@ -863,6 +863,84 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(90deg, var(--yellow), var(--pink), var(--blue), var(--green));
 }
 
+.calc-promo-banner {
+  background: var(--pink);
+  color: white;
+  padding: 32px 36px;
+  border-radius: var(--r-sm);
+  text-align: center;
+  margin: 0 -12px 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.calc-promo-banner::after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  right: -42px;
+  top: -52px;
+}
+
+.calc-promo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.55rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.calc-promo-copy {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.calc-promo-benefits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.calc-promo-benefits strong {
+  background: var(--yellow);
+  color: var(--dark);
+  border-radius: var(--r-pill);
+  padding: 10px 18px;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  line-height: 1.2;
+}
+
+.calc-promo-benefits span {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.calc-promo-banner p {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
 .calc-inputs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1003,13 +1081,86 @@ img { max-width: 100%; display: block; }
 }
 
 .calc-result-price {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 12px;
+  max-width: 700px;
+  transition: transform 0.3s;
+}
+
+.calc-price-option {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  border-radius: var(--r-sm);
+}
+
+.calc-price-card {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.1);
+}
+
+.calc-price-pix {
+  background: rgba(245,200,49,0.1);
+  border: 2px solid var(--yellow);
+}
+
+.calc-price-kicker {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 5px;
+}
+
+.calc-price-option strong {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.05;
   color: var(--yellow);
-  letter-spacing: -2px;
-  margin-bottom: 8px;
-  transition: transform 0.3s;
+  letter-spacing: -0.03em;
+}
+
+.calc-price-amount {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.calc-price-currency {
+  font-size: 0.52em;
+  letter-spacing: 0;
+  margin-right: 0.2em;
+}
+
+.calc-price-cents {
+  font-size: 0.52em;
+  letter-spacing: 0;
+}
+
+.calc-price-option > span:last-child:not(.calc-price-kicker) {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.calc-price-or {
+  align-self: center;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .calc-result-detail {
@@ -1017,6 +1168,60 @@ img { max-width: 100%; display: block; }
   color: rgba(255,255,255,0.35);
   margin-bottom: 32px;
 }
+
+.calc-payment-terms {
+  max-width: 700px;
+  margin: 0 auto 28px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--r-sm);
+  color: white;
+}
+
+.calc-payment-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.calc-payment-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.calc-payment-steps div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.calc-payment-steps strong {
+  color: var(--yellow);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.calc-payment-steps span {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.calc-payment-terms p {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  margin-top: 14px;
+}
+
+.calc-payment-terms p strong { color: white; }
 
 .calc-disclaimer {
   text-align: center;
@@ -1511,6 +1716,12 @@ img { max-width: 100%; display: block; }
     overflow: hidden;
   }
   .calc-box::before { left: 14px; right: 14px; }
+  .calc-promo-banner { padding: 26px 16px; margin: 0 -5px 28px; }
+  .calc-promo-title { font-size: 1.2rem; }
+  .calc-promo-copy { font-size: 0.85rem; }
+  .calc-promo-benefits { gap: 6px; }
+  .calc-promo-benefits strong { padding: 8px 10px; font-size: 0.7rem; }
+  .calc-promo-banner p { font-size: 0.75rem; }
   .calc-inputs { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
   .calc-inputs .calc-field:last-child { grid-column: span 2; }
   .calc-field label { font-size: 0.6rem; margin-bottom: 6px; }
@@ -1532,8 +1743,15 @@ img { max-width: 100%; display: block; }
   .calc-toggle.on .toggle-pill::after { transform: translateX(16px); }
   .toggle-text { font-size: 0.82rem; }
   .calc-result-label { font-size: 0.6rem; }
-  .calc-result-price { font-size: 2rem; letter-spacing: -1px; }
+  .calc-result-price { flex-direction: column; gap: 8px; }
+  .calc-price-option { padding: 16px 12px; }
+  .calc-price-option strong { font-size: 1.75rem; }
+  .calc-price-or { margin: -2px 0; }
   .calc-result-detail { font-size: 0.78rem; margin-bottom: 20px; }
+  .calc-payment-terms { padding: 18px 12px; margin-bottom: 22px; }
+  .calc-payment-steps { grid-template-columns: 1fr; gap: 7px; }
+  .calc-payment-title { font-size: 0.78rem; }
+  .calc-payment-terms p { font-size: 0.72rem; }
   .calc-result .btn { font-size: 0.78rem; padding: 12px 20px; }
   .calc-disclaimer { font-size: 0.68rem; }
 
@@ -1896,6 +2114,12 @@ function formatBRL(value) {
   });
 }
 
+function formatPriceHTML(value) {
+  const [whole, cents] = formatBRL(value).split(',');
+  const centsHTML = cents ? `<span class="calc-price-cents">,${cents}</span>` : '';
+  return `<span class="calc-price-currency">R$</span><span>${whole}</span>${centsHTML}`;
+}
+
 function calc() {
   const c = Math.max(10, +document.getElementById('criancas').value || 10);
   const a = +document.getElementById('adultos').value || 0;
@@ -1949,9 +2173,16 @@ function calc() {
   const fDesconto = 'R$ ' + formatBRL(tComDesconto);
 
   document.getElementById('price').innerHTML = `
-    <span style="text-decoration: line-through; font-size: 0.5em; opacity: 0.6; display: block; margin-bottom: -10px;">${f}</span>
-    ${fDesconto}
-    <span style="display: block; font-size: 0.3em; color: var(--pink); font-family: var(--font-body); letter-spacing: 0; margin-top: 5px;">* pagamento no pix</span>
+    <div class="calc-price-option calc-price-card">
+      <span class="calc-price-kicker">Cartão</span>
+      <strong class="calc-price-amount">${formatPriceHTML(t)}</strong>
+      <span>em até 10x sem juros</span>
+    </div>
+    <span class="calc-price-or">ou</span>
+    <div class="calc-price-option calc-price-pix">
+      <span class="calc-price-kicker">Pix · 10% OFF</span>
+      <strong class="calc-price-amount">${formatPriceHTML(tComDesconto)}</strong>
+    </div>
   `;
 
   const priceEl = document.getElementById('price');
@@ -1979,7 +2210,7 @@ function calc() {
   parts.push(`duração total de ${totalHoras}h`);
   if (opts.buffet) parts.push('com buffet');
   const diaMsg = dia === 'fds' ? 'fim de semana/feriado' : 'seg a quinta';
-  const msg = encodeURIComponent(`Olá! Simulei uma festa pelo site (${diaMsg}) com ${parts.join(', ')}. Valor normal: ${f}. Valor na promo de Agosto (Pix): ${fDesconto}. Pode me ajudar?`);
+  const msg = encodeURIComponent(`Olá! Simulei uma festa pelo site (${diaMsg}) com ${parts.join(', ')}. Total no cartão em até 10x sem juros: ${f}. Total no Pix com 10% de desconto: ${fDesconto}. Pagamento em 2 etapas: 50% na reserva e 50% 3 dias antes da festa. Em cada pagamento, posso escolher Pix com 10% de desconto ou cartão em até 10x sem juros. Pode me ajudar?`);
   document.getElementById('calc-wa').href = `https://wa.me/5548988461606?text=${msg}`;
 }
 
